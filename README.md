@@ -16,15 +16,15 @@
    - **도구**: Eclipse, Notion
 
 ----------------------------------------------------------------------------------------------------
-####Update
+#### Update
 
 PlayerList에서 선수 수정을 하려던 도중 
 Player_Tbl에는 team_name이라는 컬럼이 존재하지 않는다는 오류 발생
 
-#####상세 원인
+##### 상세 원인
 단일 테이블 조회: 처음에는 Player_Tbl에서 player_id에 해당하는 레코드를 단일 테이블 조회로 가져왔지만. 이 테이블에는 team_name 컬럼이 없어서 ResultSet에서 team_name 컬럼을 찾을 수 없다는 예외가 발생
 
 JOIN 누락: team_name은 Team_Tbl에 있기 때문에, Player_Tbl과 Team_Tbl을 JOIN하여 소속 팀의 이름을 함께 조회하는 것이 필요했다.
 
-#####해결 방법
+##### 해결 방법
 JOIN을 추가하여 Player_Tbl의 team_id와 Team_Tbl의 team_id를 매칭시켜 두 테이블에서 필요한 데이터를 함께 가져오도록 쿼리를 수정하였다.
